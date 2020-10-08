@@ -1,0 +1,63 @@
+<div class="container">
+<p>exam works!</p>
+<div class="row" *ngIf="quizService.qns && this.quizService.qnProgress != this.quizService.numberOfQuestions">
+  <div class="col s12 m10 l8 offset-s2" >
+    <!-- -->
+    <div class="row progress-container" >
+
+      <app-progress-bar></app-progress-bar>
+
+    </div>
+    <div class="card #cce0ff ">
+      <div class="row" >
+        <!-- -->
+        <div class="" >
+          <span class="card-title"><p>{{quizService.qnProgress+1}}.&nbsp;{{quizService.qns[quizService.qnProgress].qn}}</p></span>
+
+        </div>
+
+      </div>
+
+      <div class="row">
+        <!-- --><div class="card-action">
+        <div *ngIf="quizService.qns[quizService.qnProgress].imageName!=null">
+          <div class="col s12 m5 l5 card-image" *ngIf="quizService.qns[quizService.qnProgress].imageName!=null" style="float: right ">
+            <img class="questionImage"  src="../../assets/img/{{quizService.qns[quizService.qnProgress].imageName}}"  align="center">
+          </div>
+        </div>
+
+        <div class="{{quizService.qns[quizService.qnProgress].imageName!=null ? 'col s12 m7 l7': 'col s12 m12 l12'}}" style=" float: left" >
+
+            <ng-container *ngFor="let option of quizService.qns[quizService.qnProgress].options;let i = index">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option" *ngIf="option != null" (click)="Answer(quizService.qns[quizService.qnProgress].qnID,i+1)" >
+                <label class="form-check-label" for="exampleRadios2">
+                  {{option}}
+                </label>
+              </div>
+            </ng-container>
+
+        </div>
+      </div>
+      </div>
+
+      <div class="row button-container" >
+        <!-- -->
+        <div class="row" [hidden] ="!quizService.isSubmitDisable">
+          <div class="input-field col s6">
+            <button class="btn-large btn-submit" type="button" (click)="SkipQuestion()">Skip</button>
+          </div>
+          <div class="input-field col s6">
+            <button class="btn-large btn-submit" [disabled]="quizService.isNextDisable" type="button" (click)="NextQuestion(quizService.qns[quizService.qnProgress].qnID)">Next</button>
+          </div>
+        </div>
+        <div class="row" [hidden] ="quizService.isSubmitDisable">
+          <div class="input-field col s12">
+            <button class="btn-large btn-submit" type="button" (click)="submitQuiz(quizService.qns[quizService.qnProgress].qnID)">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

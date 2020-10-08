@@ -1,0 +1,14 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+
+@media (max-width: 599px) {
+
+  .mat-toolbar-multiple-rows {
+    overflow:hidden;
+  }
+  .mat-button{
+    padding: 0 10px;
+  }
+
+
+}

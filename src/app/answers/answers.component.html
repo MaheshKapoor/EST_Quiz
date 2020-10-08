@@ -1,0 +1,40 @@
+<p>answers works!</p>
+<div class="row">
+  <div class="col s12 m10 l8 offset-s3">
+    <h2 class="header">Completed!</h2>
+
+
+    <!-- Qn with correct answer -->
+    <h3>Questions with correct answer</h3>
+    <ng-container *ngFor="let qn of quizService.qns;let i=index">
+      <div class="card result-page">
+        <div class="row">
+          <div class="{{qn.imageName!=null ? 'custom-card-content white-text col m8 l8': 'card-content col m12 s12 l12 white-text left'}}" >
+            <span class="card-title result"><p>{{i+1}}. &nbsp;{{qn.qn}}</p></span>
+          </div>
+          <div class="card-image right col l4 m4 s12" *ngIf="qn.imageName!=null">
+            <img class="questionImage"  src="../../assets/img/{{qn.imageName}}" align="right">
+            <!--<img class="center" [src]="quizService.rootUrl+'/Images/'+quizService.qns.data[quizService.qnProgress].ImageName" style="width:350px;height:200px">-->
+          </div>
+        </div>
+        <div class="card-action">
+          <ul class="collection">
+            <ng-container *ngFor="let option of qn.options;let j = index">
+              <li *ngIf="option != null" class="collection-item">
+                {{option}}
+                <span class="badge" *ngIf="qn.answer-1==j">
+                                <i class="material-icons green-text">check_circle</i>
+                            </span>
+                <span class="badge large material-icons red-text" *ngIf="qn.selectedAnswer-1==j && qn.answer-1!=j">clear</span>
+              </li>
+
+            </ng-container>
+            <span class="badge orange black-text" *ngIf="qn.selectedAnswer-1==5">Not Attempted</span>
+            <span class="badge green white-text" *ngIf="qn.selectedAnswer-1== qn.answer-1">Correct Answer</span>
+            <span class="badge red white-text" *ngIf="qn.selectedAnswer-1!=5 && qn.selectedAnswer-1 != qn.answer-1">Incorrect Answer</span>
+          </ul>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

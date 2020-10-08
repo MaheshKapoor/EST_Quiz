@@ -1,0 +1,14 @@
+
+footer{
+  background-color: #673ab7;
+  min-height:40px;
+  color:#fff;
+  overflow:hidden;
+}
+
+
+@media (max-width: 599px) {
+.nofloat{
+  float:none !important;
+}
+  }

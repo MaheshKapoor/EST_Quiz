@@ -1,0 +1,58 @@
+{
+  "data":{
+    "extraDetails":{
+      "quizTitle":"HTML5 Practice Test",
+      "previousSet":null,
+      "nextSet":"DKTNSW00E181003FL2",
+      "numberOfQuestion":"3",
+      "referralLink":[
+        {
+          "title":"Simple Arithematic questions on Multiplication",
+          "url":"https://www.service.nsw.gov.au/transaction/driver-knowledge-test",
+          "description":"Are you ready for DKT test? Try simulation test before you go for final test."
+        },
+        {
+          "title":"Simple Arithematic questions on Substraction",
+          "url":"https://www.rms.nsw.gov.au/roads/licence/driver/tests/driver-knowledge-test.html",
+          "description":"Government website for all informationunder one umbrella."
+        }
+      ]
+    },
+    "questions":[
+      {
+        "options":[
+          "Let the emergency vehicle pass and follow it closely behind.",
+          "Immediately come to a stop.",
+          "Pull over to the left until the emergency vehicle passes."
+        ],
+        "imageName":null,
+        "qnID":"1",
+        "qn":"<xmp><html><head> </head> <body> <p>Test</p></body></html> </xmp>",
+        "answer":"3"
+      },
+      {
+        "options":[
+          "Slow down and stop if necessary to prevent getting in its way.",
+          "Keep driving because you have the green light.",
+          "Pull over to the left before you reach the intersection"
+        ],
+        "imageName":"dkt/CG095.png",
+        "qnID":"2",
+        "qn":"You are approaching a green light in vehicle A. An ambulance sounding its siren is approaching the same intersection and has a red light. You should -",
+        "answer":"1"
+      },
+      {
+        "options":[
+          "Stop and wait for the lights to stop flashing.",
+          "Overtake the bus only while the lights are flashing.",
+          "Drive carefully at no more than 40 km/h."
+        ],
+        "imageName":"dkt/CG099.png",
+        "qnID":"3",
+        "qn":"When you see these lights flashing on the back of a bus, what should you do?",
+        "answer":"3"
+      }
+
+    ]
+  }
+}

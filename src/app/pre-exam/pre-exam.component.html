@@ -1,0 +1,22 @@
+<div class="container">
+<app-term-and-condition></app-term-and-condition>
+<p>pre-exam works!</p>
+
+
+<form (ngSubmit)="onStart()" #preExamForm="ngForm">
+  <div class="form-group">
+
+    <input type="checkbox" id="name"
+            required
+           [(ngModel)]="filterText" name="name"
+           #name="ngModel"> <label for="name">I have reviewed the Terms and Conditions and agree to attempt this exam.</label>
+    <div [hidden]="name.valid || name.pristine"
+         class="alert alert-danger">
+      Please accept the Terms and Conditions
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!preExamForm.form.valid">Start</button>
+  <button type="submit" class="btn btn-success" (click)="onCancel()">Cancel</button>
+
+</form>
+</div>

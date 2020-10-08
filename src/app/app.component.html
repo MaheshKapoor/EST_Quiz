@@ -1,0 +1,42 @@
+
+<!--Header-->
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/link1'"> Home </a>
+      <a mat-button [routerLink]="'/link2'"> Web Development </a>
+      <a mat-button [routerLink]="'/link3'"> Cloud </a>
+      <a mat-button [routerLink]="'/link4'"> Full Stack </a>
+      <a mat-button [routerLink]="'/link5'"> Database </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!--left navigation-->
+<mat-sidenav-container>
+  <mat-sidenav #sidenav >
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/link1'"> Home </a>
+      <a mat-list-item [routerLink]="'/link2'"> Web Development </a>
+      <a mat-list-item [routerLink]="'/link3'"> Cloud </a>
+      <a mat-list-item [routerLink]="'/link4'"> Full Stack </a>
+      <a mat-list-item [routerLink]="'/link5'"> Database </a>
+      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+      <app-font-controller></app-font-controller>
+      <!--<app-event-details-form></app-event-details-form>-->
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<app-footer></app-footer>
+

@@ -1,0 +1,89 @@
+<div class="container">
+  <div>
+    <h1 class="mainheading">Find an Event</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Run a search below to find an event near you</p>
+    <form (ngSubmit)="onSubmit()" #eventdetailForm="ngForm">
+      <div class="form-group">
+        <label for="name">Search</label>
+        <input type="text" class="form-control" id="name"
+
+               [(ngModel)]="filterText" name="name"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Search term is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="domain">domain</label>
+        <select class="form-control width25" id="domain"
+                [(ngModel)]="filterDist" name="domain"
+                #domain="ngModel">
+          <option value=""> -- Leave Empty --</option>
+          <option *ngFor="let datum of data | unique: 'domain'" [value]="datum.domain">{{datum.domain}}</option>
+        </select>
+        <div [hidden]="domain.valid || domain.pristine" class="alert alert-danger">
+          domain is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="language">language</label>
+        <select class="form-control width25" id="language"
+               [(ngModel)]="filterDate" name="language"
+                #language="ngModel">
+          <option value=""> -- Leave Empty --</option>
+          <option *ngFor="let datum of data | unique: 'language'" [value]="datum.language">{{datum.language}}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!eventdetailForm.form.valid">Submit</button>
+
+    </form>
+  </div>
+
+
+  <hr class="separator"/>
+  <div [hidden]="!submitted">
+    <div *ngIf="filteredData.length == 0">
+      <p>No Result found</p>
+    </div>
+    <ul>
+      <li *ngFor="let datum of filteredData">
+<div class="row">
+  <div class="col-lg-2 col-xs-3"> <strong>Exam name:</strong></div>
+  <div class="col-lg-2 col-xs-9"> <a href="/pre-exam/{{datum.id}}">{{ datum.name }}</a></div>
+  <div class="col-lg-2 col-xs-3"><strong>description:</strong></div>
+  <div class="col-lg-2 col-xs-9">{{ datum.description }}</div>
+  <div class="col-lg-2 col-xs-3"><strong>language:</strong></div>
+  <div class="col-lg-2 col-xs-9">{{ datum.language }}</div>
+</div>
+
+        <div class="row">
+          <div class="col-lg-2 col-xs-3"><strong>keywords:</strong></div>
+          <div class="col-lg-2 col-xs-9">{{ datum.keywords }}</div>
+          <div class="col-lg-2 col-xs-3"><strong>domain:</strong></div>
+          <div class="col-lg-2 col-xs-9"> {{ datum.domain }}</div>
+          <div class="col-lg-2 col-xs-3"></div>
+          <div class="col-lg-2 col-xs-9"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-2 col-xs-3"><strong>level: </strong></div>
+          <div class="col-lg-2 col-xs-9">{{datum.level}}</div>
+          <div class="col-lg-2 col-xs-3"></div>
+          <div class="col-lg-2 col-xs-9"></div>
+          <div class="col-lg-2 col-xs-3"></div>
+          <div class="col-lg-2 col-xs-9"></div>
+        </div>
+        <hr class="separator"/>
+      </li>
+
+    </ul>
+    <br>
+
+  </div>
+</div>
